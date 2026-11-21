@@ -1,0 +1,9 @@
+# IntelliJ project files
+.idea/
+*.iml
+
+# Maven build output (one per service)
+target/
+
+# OS junk
+.DS_Store
