@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: product-service # The name other services will use to find us in Eureka.
+  datasource:
+    url: jdbc:postgresql://localhost:5432/product_db
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update # Creates/updates tables automatically. Fine for a tutorial, not for production.
+    open-in-view: false # Keeps DB sessions out of the web layer.
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  cache:
+    type: redis
+    redis:
+      time-to-live: 10m # Cached products expire after 10 minutes.
+  threads:
+    virtual:
+      enabled: true # Java 25 virtual threads for every request.
+
+server:
+  port: 8081
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
